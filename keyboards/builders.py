@@ -1,31 +1,6 @@
-from aiogram.types import (
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-    KeyboardButton,
-    ReplyKeyboardMarkup,
-)
+from aiogram.types import InlineKeyboardButton, KeyboardButton
 from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
 from aiogram.filters.callback_data import CallbackData
-
-
-main_kb = ReplyKeyboardMarkup(
-    keyboard=[
-        [
-            KeyboardButton(text='Emoji'),
-            KeyboardButton(text='Link')
-        ],
-        [
-            KeyboardButton(text='Calculiator'),
-            KeyboardButton(text='Special button')
-        ]
-    ],
-    # olchamini yaxshilab beradi
-    resize_keyboard=True,
-    # bir marta ishlatgandan keyin yoqolib ketadai
-    one_time_keyboard=True,
-    # bu inputga place holder
-    input_field_placeholder="Menudan birini tanlang"
-)
 
 
 # Pagination class Clalback datadan voris ovoti va unga parametra bervoti
@@ -52,20 +27,7 @@ def paginator(page: int = 0):
     )
     return inline_builder.as_markup()
 
-
-links_kb = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [
-            InlineKeyboardButton(
-                text='Telegram', url='tg://resolve?domain=MBOSSL'),
-            InlineKeyboardButton(
-                text='GitHub', url='https://github.com/ummad741')
-        ]
-    ]
-)
-
-
-def calc_kb():
+def calc():
     calc_items = [
         '1', '2', '3', '/',
         '4', '5', '6', '*',
@@ -81,18 +43,3 @@ def calc_kb():
 
     #
     return builder.as_markup(resize_keyboard=True)
-
-
-spec_kb = ReplyKeyboardMarkup(
-    keyboard=[
-        [
-            KeyboardButton(text='GEO jonatish', request_location=True),
-            KeyboardButton(text='Kontakt jonatish', request_contact=True)
-        ],
-        [
-            KeyboardButton(text='Orqaga')
-        ],
-    ],
-    resize_keyboard=True,
-    one_time_keyboard=True
-)
