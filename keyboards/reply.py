@@ -1,4 +1,4 @@
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove
 
 main = ReplyKeyboardMarkup(
     keyboard=[
@@ -31,3 +31,4 @@ spec = ReplyKeyboardMarkup(
     resize_keyboard=True,
     one_time_keyboard=True
 )
+rmk = ReplyKeyboardRemove()

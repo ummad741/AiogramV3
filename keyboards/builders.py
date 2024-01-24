@@ -27,6 +27,7 @@ def paginator(page: int = 0):
     )
     return inline_builder.as_markup()
 
+
 def calc():
     calc_items = [
         '1', '2', '3', '/',
@@ -43,3 +44,15 @@ def calc():
 
     #
     return builder.as_markup(resize_keyboard=True)
+
+
+def profile(text: str | list):
+    builder = ReplyKeyboardBuilder()
+    if isinstance(text, str):
+        text = [text]
+
+    [builder.button(text=txt) for txt in text]
+
+    return builder.as_markup(resize_keyboard=True, one_time_keyboard=True)
+
+    

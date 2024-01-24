@@ -1,1 +1,1 @@
-from . import bot_cmd, user_cmds
+from . import commands, services
